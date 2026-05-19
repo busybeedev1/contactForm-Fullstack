@@ -1,12 +1,16 @@
 import React from 'react';
 import './ContactForm.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ParagraphText from './paragraphText';
+
 // import handleSubmit...
 // import changeData
 // import useState
 
 const ContactForm = () => {
+  const navigate = useNavigate();
+
   const [formsData, setFormsData] = useState({
     firstName: "",
     lastName: "",
@@ -131,9 +135,15 @@ const ContactForm = () => {
       <button type="submit" className="submit-btn">
         Submit
       </button>
+      <button
+        type="button"
+        className="submit-btn"
+        onClick={() => navigate("/users")}>
+        View All Users
+      </button>
       <ParagraphText text="Your Information is Safe With us!" style={{ color: "black" }} />
     </form>
   )
-}
+};
 
 export default ContactForm
